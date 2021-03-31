@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "hwi/oauth-bundle": "dev-master#b042ddd",
+		"php": ">=7.4.*",
 		"php-http/guzzle6-adapter": "^2.0",
         "php-http/httplug-bundle": "^1.20"
     },
