@@ -1,7 +1,7 @@
 <?php
 
 // src/XippoErpCoreBundle.php
-namespace App\Xippogmbh\XippoErpCoreBundle;
+namespace Xippogmbh\XippoErpCoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
