@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-		"php": ">=7.4.*",
+		"php": ">=7.2.5",
 		"php-http/guzzle6-adapter": "^2.0",
         "php-http/httplug-bundle": "^1.20"
     },
