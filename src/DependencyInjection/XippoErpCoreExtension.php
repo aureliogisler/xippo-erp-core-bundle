@@ -1,7 +1,7 @@
 <?php 
 
 // src/DependencyInjection/XippoCoreExtension.php
-namespace App\XippoGmbh\XippoErpCoreBundle\DependencyInjection;
+namespace Xippogmbh\XippoErpCoreBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;

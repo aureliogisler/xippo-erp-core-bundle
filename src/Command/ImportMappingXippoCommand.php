@@ -1,6 +1,6 @@
 <?php
 
-namespace App\XippoGmbh\XippoErpCoreBundle\Command;
+namespace Xippogmbh\XippoErpCoreBundle\Command;
 
 use Doctrine\ORM\Mapping\Driver\DatabaseDriver;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
