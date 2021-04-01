@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Xippogmbh\XippoErpCoreBundle\Command;
 
 use Doctrine\ORM\Mapping\Driver\DatabaseDriver;
