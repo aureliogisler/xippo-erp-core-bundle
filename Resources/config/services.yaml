@@ -7,4 +7,8 @@ services:
         tags:
             - { name: 'console.command', command: 'xippo:mapping:import' }
         autowire: true
+    Xippogmbh\XippoErpCoreBundle\Command\GreetCommand:
+        tags:
+            - { name: 'console.command', command: 'xippo:greet' }
+        autowire: true
     
