@@ -26,10 +26,6 @@
         "symfony/web-server-bundle": "^4.4.20"
     },
     "config": {
-        "optimize-autoloader": true,
-        "preferred-install": {
-            "*": "dist"
-        },
         "sort-packages": true
     },
     "autoload": {
