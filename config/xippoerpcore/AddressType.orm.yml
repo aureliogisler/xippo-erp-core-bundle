@@ -1,0 +1,72 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Addresstype:
+    type: entity
+    table: AddressTypes
+    indexes:
+        IDX_A0A9DD3CD490A9DD:
+            columns:
+                - textFID
+    id:
+        addressTypeID:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: addressTypeID
+            generator:
+                strategy: IDENTITY
+    fields:
+        isBillAddress:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isBillAddress
+        isDebtor:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isDebtor
+        isDefault:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isDefault
+        isDeliveryAddress:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isDeliveryAddress
+        isContactPerson:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isContactPerson
+        isCreditor:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isCreditor
+        isControlAddress:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isControlAddress
+    manyToOne:
+        textFID:
+            targetEntity: Text
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                textFID:
+                    referencedColumnName: textID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

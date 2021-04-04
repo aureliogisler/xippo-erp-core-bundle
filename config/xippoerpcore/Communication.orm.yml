@@ -1,0 +1,67 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Communication:
+    type: entity
+    table: Communications
+    indexes:
+        IDX_E14B2396F55508DB:
+            columns:
+                - communicationTypeFID
+        IDX_E14B239648AA33E0:
+            columns:
+                - addressFID
+    id:
+        communicationID:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: communicationID
+            generator:
+                strategy: IDENTITY
+    fields:
+        communication:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        isPrivate:
+            type: boolean
+            nullable: false
+            column: isPrivate
+        shortComment:
+            type: string
+            nullable: true
+            length: 4000
+            options:
+                fixed: false
+                default: ''
+            column: shortComment
+        sort:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    manyToOne:
+        communicationTypeFID:
+            targetEntity: CommunicationType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                communicationTypeFID:
+                    referencedColumnName: communicationTypeID
+            orphanRemoval: false
+        addressFID:
+            targetEntity: Address
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                addressFID:
+                    referencedColumnName: addressID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

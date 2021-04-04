@@ -1,0 +1,75 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Unit:
+    type: entity
+    table: Units
+    indexes:
+        IDX_28715B4DD490A9DD:
+            columns:
+                - textFID
+    id:
+        unitID:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: unitID
+            generator:
+                strategy: IDENTITY
+    fields:
+        acronym:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                default: ''
+        decimalPlaces:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: decimalPlaces
+        isCycleUnit:
+            type: boolean
+            nullable: false
+            column: isCycleUnit
+        isHireUnit:
+            type: boolean
+            nullable: false
+            column: isHireUnit
+        isPackingUnit:
+            type: boolean
+            nullable: false
+            column: isPackingUnit
+        isRateUnit:
+            type: boolean
+            nullable: false
+            column: isRateUnit
+        isWeightUnit:
+            type: boolean
+            nullable: false
+            column: isWeightUnit
+        parentFactor:
+            type: decimal
+            nullable: true
+            precision: 12
+            scale: 5
+            column: parentFactor
+        parentUnitFID:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: parentUnitFID
+    manyToOne:
+        textFID:
+            targetEntity: Text
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                textFID:
+                    referencedColumnName: textID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

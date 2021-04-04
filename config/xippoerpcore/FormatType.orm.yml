@@ -1,0 +1,37 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Formattype:
+    type: entity
+    table: FormatTypes
+    indexes:
+        IDX_38C3A2BD490A9DD:
+            columns:
+                - textFID
+    id:
+        formatTypeID:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: formatTypeID
+            generator:
+                strategy: IDENTITY
+    fields:
+        link:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+                default: ''
+    manyToOne:
+        textFID:
+            targetEntity: Text
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                textFID:
+                    referencedColumnName: textID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

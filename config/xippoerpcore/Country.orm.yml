@@ -1,0 +1,56 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Country:
+    type: entity
+    table: Countrys
+    indexes:
+        IDX_46FA1AF9D490A9DD:
+            columns:
+                - textFID
+    id:
+        countryID:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: countryID
+            generator:
+                strategy: IDENTITY
+    fields:
+        countryISO:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+            column: countryISO
+        flag:
+            type: blob
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        ibanFormat:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+            column: ibanFormat
+        isEUCountry:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: isEUCountry
+    manyToOne:
+        textFID:
+            targetEntity: Text
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                textFID:
+                    referencedColumnName: textID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

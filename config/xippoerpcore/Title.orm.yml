@@ -1,0 +1,29 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Titles:
+    type: entity
+    table: Titles
+    id:
+        titleid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: titleID
+            generator:
+                strategy: IDENTITY
+    fields:
+        shortstring:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: shortString
+        longstring:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+            column: longString
+    lifecycleCallbacks: {  }

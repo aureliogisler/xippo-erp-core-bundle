@@ -1,0 +1,332 @@
+Xippogmbh\XippoErpCoreBundle\Entity\Address:
+    type: entity
+    table: Addresses
+    indexes:
+        IDX_ED3BF7B5B7821B28:
+            columns:
+                - titleFID
+        IDX_ED3BF7B5934744C1:
+            columns:
+                - salutationFID
+        IDX_ED3BF7B54432A2E5:
+            columns:
+                - countryFID
+        IDX_ED3BF7B575864BA6:
+            columns:
+                - addressTypeFID
+    id:
+        addressID:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'ID von tAddress, Primary'
+            id: true
+            column: addressID
+            generator:
+                strategy: IDENTITY
+    fields:
+        addressSalutation:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: addressSalutation
+        birthDay:
+            type: date
+            nullable: true
+            options:
+                comment: Geburtsdatum
+            column: birthDay
+        city:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Stadt
+        createDate:
+            type: datetime
+            nullable: false
+            options:
+                comment: Erstellungdatum
+                default: CURRENT_TIMESTAMP
+            column: createDate
+        createUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+                comment: 'Erstellungs Benutzer'
+                default: ''
+            column: createUser
+        department:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        eBillingIdentity:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+            column: eBillingIdentity
+        extReference:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+                comment: 'Externe Referenz, z.B. von Import oder WebShop'
+            column: extReference
+        firstname:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Vorname
+        flag1:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Freiverwendbares Flag'
+        flag2:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Freiverwendbares Flag'
+        flag3:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Freiverwendbares Flag'
+        flag4:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Freiverwendbares Flag'
+        flag5:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Freiverwendbares Flag'
+        function:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+        info1:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: 'Freiverwendbares Textfeld60'
+        info2:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: 'Freiverwendbares Textfeld60'
+        info3:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: 'Freiverwendbares Textfeld60'
+        info4:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: 'Freiverwendbares Textfeld60'
+        info5:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: 'Freiverwendbares Textfeld60'
+        isLocked:
+            type: boolean
+            nullable: false
+            options:
+                comment: 'Adresse ist Gesperrt'
+                default: '0'
+            column: isLocked
+        isTemporary:
+            type: boolean
+            nullable: false
+            options:
+                comment: 'Temporäre Adresse, kann gelöscht werden'
+                default: '0'
+            column: isTemporary
+        letterSalutation:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+            column: letterSalutation
+        matchcode:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        middleName:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: mittelname
+            column: middleName
+        modifyDate:
+            type: datetime
+            nullable: false
+            options:
+                comment: Änderungsdatum
+                default: CURRENT_TIMESTAMP
+            column: modifyDate
+        modifyUser:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+                comment: Änderungsuser
+                default: ''
+            column: modifyUser
+        name1:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+                comment: Name1
+        name2:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Name2
+        name3:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Name3
+        poBox:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Postfach
+            column: poBox
+        poCity:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: 'Postfach Ort'
+            column: poCity
+        poZip:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                comment: 'Postfach PLZ'
+            column: poZip
+        street1:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Strasse1
+        street2:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: Strasse2
+        vatNumber:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+                comment: MWST-Nummer
+            column: vatNumber
+        zazNumber:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: zazNumber
+        zip:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+                comment: Postleitzahl
+    manyToOne:
+        titleFID:
+            targetEntity: Title
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                titleFID:
+                    referencedColumnName: titleID
+            orphanRemoval: false
+        salutationFID:
+            targetEntity: Salutation
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                salutationFID:
+                    referencedColumnName: salutationID
+            orphanRemoval: false
+        countryFID:
+            targetEntity: Country
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                countryFID:
+                    referencedColumnName: countryID
+            orphanRemoval: false
+        addressTypeFID:
+            targetEntity: AddressType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                addressTypeFID:
+                    referencedColumnName: addressTypeID
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
