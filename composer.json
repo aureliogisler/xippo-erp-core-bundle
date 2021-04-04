@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Xippogmbh\\XippoErpCoreBundle\\": ""
+            "Xippogmbh\\XippoErpCoreBundle\\": "src/"
         }
     },
     "support": {
