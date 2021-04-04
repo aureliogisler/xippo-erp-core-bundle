@@ -3,10 +3,10 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
-    Xippogmbh\XippoErpCoreBundle\Command\ImportMappingXippoCommand:
-        tags:
-            - { name: 'console.command', command: 'xippo:mapping:import' }
-        autowire: true
+    # Xippogmbh\XippoErpCoreBundle\Command\ImportMappingXippoCommand:
+    #     tags:
+    #         - { name: 'console.command', command: 'xippo:mapping:import' }
+    #     autowire: true
     Xippogmbh\XippoErpCoreBundle\Command\GreetCommand:
         tags:
             - { name: 'console.command', command: 'xippo:greet' }
