@@ -11,4 +11,15 @@ services:
         tags:
             - { name: 'console.command', command: 'xippo:greet' }
         autowire: true
-    
+    orm:
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    Main:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/config/xippoerpcore'
+                        prefix: 'Xippogmbh\XippoErpCoreBundle\Entityn'
+                        alias: Main
