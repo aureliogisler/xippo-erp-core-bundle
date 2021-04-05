@@ -11,5 +11,3 @@ services:
         tags:
             - { name: 'console.command', command: 'xippo:greet' }
         autowire: true
-    App\:
-        resource: '../src/*'
