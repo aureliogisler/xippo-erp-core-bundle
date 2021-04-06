@@ -43,13 +43,6 @@ class Employee
     private $createUser;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="exchangeUser", type="string", length=255, nullable=true)
-     */
-    private $exchangeUser;
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="hasCalendar", type="boolean", nullable=false)
@@ -90,6 +83,20 @@ class Employee
      * @ORM\Column(name="modifyUser", type="string", length=60, nullable=false)
      */
     private $modifyUser;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="office365ID", type="string", length=255, nullable=true)
+     */
+    private $office365ID;
+
+    /**
+     * @var string|null
+     * 
+     * @ORM\Column(name="office365AccessToken", type="string", length=255, nullable=true)
+     */
+    private $office365AccessToken;
 
     /**
      * @var string
@@ -290,6 +297,30 @@ class Employee
     public function setModifyUser(string $modifyUser): self
     {
         $this->modifyUser = $modifyUser;
+
+        return $this;
+    }
+
+    public function getOffice365ID(): ?string
+    {
+        return $this->office365ID;
+    }
+
+    public function setOffice365ID(string $office365ID): self
+    {
+        $this->office365ID = $office365ID;
+
+        return $this;
+    }
+
+    public function getOffice365AccessToken(): ?string
+    {
+        return $this->office365AccessToken;
+    }
+
+    public function setOffice365AccessToken(string $office365AccessToken): self
+    {
+        $this->office365AccessToken = $office365AccessToken;
 
         return $this;
     }
