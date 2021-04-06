@@ -4,21 +4,342 @@ namespace Xippogmbh\XippoErpCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Address
+ *
+ * @ORM\Table(name="Addresses", indexes={@ORM\Index(name="IDX_ED3BF7B5B7821B28", columns={"titleFID"}), @ORM\Index(name="IDX_ED3BF7B5934744C1", columns={"salutationFID"}), @ORM\Index(name="IDX_ED3BF7B54432A2E5", columns={"countryFID"}), @ORM\Index(name="IDX_ED3BF7B575864BA6", columns={"addressTypeFID"})})
+ * @ORM\Entity
+ */
 class Address
 {
-    public function getAddressid(): ?int
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="addressID", type="integer", nullable=false, options={"comment"="ID von tAddress, Primary"})
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $addressID;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="addressSalutation", type="string", length=128, nullable=true)
+     */
+    private $addressSalutation;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="birthday", type="date", nullable=true, options={"comment"="Geburtsdatum"})
+     */
+    private $birthday;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="city", type="string", length=60, nullable=true, options={"comment"="Stadt"})
+     */
+    private $city;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createDate", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP","comment"="Erstellungdatum"})
+     */
+    private $createDate = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="createUser", type="string", length=60, nullable=false, options={"comment"="Erstellungs Benutzer"})
+     */
+    private $createUser = '';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="department", type="string", length=60, nullable=true)
+     */
+    private $department;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="eBillingIdentity", type="string", length=60, nullable=true)
+     */
+    private $eBillingIdentity;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="extReference", type="string", length=20, nullable=true, options={"comment"="Externe Referenz, z.B. von Import oder WebShop"})
+     */
+    private $extReference;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="firstname", type="string", length=60, nullable=true, options={"comment"="Vorname"})
+     */
+    private $firstname;
+
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="flag1", type="boolean", nullable=true, options={"comment"="Freiverwendbares Flag"})
+     */
+    private $flag1;
+
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="flag2", type="boolean", nullable=true, options={"comment"="Freiverwendbares Flag"})
+     */
+    private $flag2;
+
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="flag3", type="boolean", nullable=true, options={"comment"="Freiverwendbares Flag"})
+     */
+    private $flag3;
+
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="flag4", type="boolean", nullable=true, options={"comment"="Freiverwendbares Flag"})
+     */
+    private $flag4;
+
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="flag5", type="boolean", nullable=true, options={"comment"="Freiverwendbares Flag"})
+     */
+    private $flag5;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="function", type="string", length=60, nullable=true)
+     */
+    private $function;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="info1", type="string", length=60, nullable=true, options={"comment"="Freiverwendbares Textfeld60"})
+     */
+    private $info1;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="info2", type="string", length=60, nullable=true, options={"comment"="Freiverwendbares Textfeld60"})
+     */
+    private $info2;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="info3", type="string", length=60, nullable=true, options={"comment"="Freiverwendbares Textfeld60"})
+     */
+    private $info3;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="info4", type="string", length=60, nullable=true, options={"comment"="Freiverwendbares Textfeld60"})
+     */
+    private $info4;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="info5", type="string", length=60, nullable=true, options={"comment"="Freiverwendbares Textfeld60"})
+     */
+    private $info5;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isLocked", type="boolean", nullable=false, options={"comment"="Adresse ist Gesperrt"})
+     */
+    private $isLocked = '0';
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isTemporary", type="boolean", nullable=false, options={"comment"="Temporäre Adresse, kann gelöscht werden"})
+     */
+    private $isTemporary = '0';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="letterSalutation", type="string", length=128, nullable=true)
+     */
+    private $letterSalutation;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="matchcode", type="string", length=20, nullable=true)
+     */
+    private $matchcode;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="middleName", type="string", length=60, nullable=true, options={"comment"="mittelname"})
+     */
+    private $middleName;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="modifyDate", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP","comment"="Änderungsdatum"})
+     */
+    private $modifyDate = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modifyUser", type="string", length=60, nullable=false, options={"comment"="Änderungsuser"})
+     */
+    private $modifyUser = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name1", type="string", length=60, nullable=false, options={"comment"="Name1"})
+     */
+    private $name1;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="name2", type="string", length=60, nullable=true, options={"comment"="Name2"})
+     */
+    private $name2;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="name3", type="string", length=60, nullable=true, options={"comment"="Name3"})
+     */
+    private $name3;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="poBox", type="string", length=60, nullable=true, options={"comment"="Postfach"})
+     */
+    private $poBox;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="poCity", type="string", length=60, nullable=true, options={"comment"="Postfach Ort"})
+     */
+    private $poCity;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="poZip", type="string", length=10, nullable=true, options={"comment"="Postfach PLZ"})
+     */
+    private $poZip;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="street1", type="string", length=60, nullable=true, options={"comment"="Strasse1"})
+     */
+    private $street1;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="street2", type="string", length=60, nullable=true, options={"comment"="Strasse2"})
+     */
+    private $street2;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="vatNumber", type="string", length=60, nullable=true, options={"comment"="MWST-Nummer"})
+     */
+    private $vatNumber;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="zazNumber", type="string", length=20, nullable=true)
+     */
+    private $zazNumber;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="zip", type="string", length=10, nullable=true, options={"comment"="Postleitzahl"})
+     */
+    private $zip;
+
+    /**
+     * @var \Title
+     *
+     * @ORM\ManyToOne(targetEntity="Title")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="titleFID", referencedColumnName="titleID")
+     * })
+     */
+    private $titleFID;
+
+    /**
+     * @var \Salutation
+     *
+     * @ORM\ManyToOne(targetEntity="Salutation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="salutationFID", referencedColumnName="salutationID")
+     * })
+     */
+    private $salutationFID;
+
+    /**
+     * @var \Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="countryFID", referencedColumnName="countryID")
+     * })
+     */
+    private $countryFID;
+
+    /**
+     * @var \AddressType
+     *
+     * @ORM\ManyToOne(targetEntity="AddressType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="addressTypeFID", referencedColumnName="addressTypeID")
+     * })
+     */
+    private $addressTypeFID;
+
+    public function getAddressID(): ?int
     {
-        return $this->addressid;
+        return $this->addressID;
     }
 
-    public function getAddresssalutation(): ?string
+    public function getAddressSalutation(): ?string
     {
-        return $this->addresssalutation;
+        return $this->addressSalutation;
     }
 
-    public function setAddresssalutation(?string $addresssalutation): self
+    public function setAddressSalutation(?string $addressSalutation): self
     {
-        $this->addresssalutation = $addresssalutation;
+        $this->addressSalutation = $addressSalutation;
 
         return $this;
     }
@@ -47,26 +368,26 @@ class Address
         return $this;
     }
 
-    public function getCreatedate(): ?\DateTimeInterface
+    public function getCreateDate(): ?\DateTimeInterface
     {
-        return $this->createdate;
+        return $this->createDate;
     }
 
-    public function setCreatedate(\DateTimeInterface $createdate): self
+    public function setCreateDate(\DateTimeInterface $createDate): self
     {
-        $this->createdate = $createdate;
+        $this->createDate = $createDate;
 
         return $this;
     }
 
-    public function getCreateuser(): ?string
+    public function getCreateUser(): ?string
     {
-        return $this->createuser;
+        return $this->createUser;
     }
 
-    public function setCreateuser(string $createuser): self
+    public function setCreateUser(string $createUser): self
     {
-        $this->createuser = $createuser;
+        $this->createUser = $createUser;
 
         return $this;
     }
@@ -83,26 +404,26 @@ class Address
         return $this;
     }
 
-    public function getEbillingidentity(): ?string
+    public function getEBillingIdentity(): ?string
     {
-        return $this->ebillingidentity;
+        return $this->eBillingIdentity;
     }
 
-    public function setEbillingidentity(?string $ebillingidentity): self
+    public function setEBillingIdentity(?string $eBillingIdentity): self
     {
-        $this->ebillingidentity = $ebillingidentity;
+        $this->eBillingIdentity = $eBillingIdentity;
 
         return $this;
     }
 
-    public function getExtreference(): ?string
+    public function getExtReference(): ?string
     {
-        return $this->extreference;
+        return $this->extReference;
     }
 
-    public function setExtreference(?string $extreference): self
+    public function setExtReference(?string $extReference): self
     {
-        $this->extreference = $extreference;
+        $this->extReference = $extReference;
 
         return $this;
     }
@@ -251,38 +572,38 @@ class Address
         return $this;
     }
 
-    public function getIslocked(): ?bool
+    public function getIsLocked(): ?bool
     {
-        return $this->islocked;
+        return $this->isLocked;
     }
 
-    public function setIslocked(bool $islocked): self
+    public function setIsLocked(bool $isLocked): self
     {
-        $this->islocked = $islocked;
+        $this->isLocked = $isLocked;
 
         return $this;
     }
 
-    public function getIstemporary(): ?bool
+    public function getIsTemporary(): ?bool
     {
-        return $this->istemporary;
+        return $this->isTemporary;
     }
 
-    public function setIstemporary(bool $istemporary): self
+    public function setIsTemporary(bool $isTemporary): self
     {
-        $this->istemporary = $istemporary;
+        $this->isTemporary = $isTemporary;
 
         return $this;
     }
 
-    public function getLettersalutation(): ?string
+    public function getLetterSalutation(): ?string
     {
-        return $this->lettersalutation;
+        return $this->letterSalutation;
     }
 
-    public function setLettersalutation(?string $lettersalutation): self
+    public function setLetterSalutation(?string $letterSalutation): self
     {
-        $this->lettersalutation = $lettersalutation;
+        $this->letterSalutation = $letterSalutation;
 
         return $this;
     }
@@ -299,38 +620,38 @@ class Address
         return $this;
     }
 
-    public function getMiddlename(): ?string
+    public function getMiddleName(): ?string
     {
-        return $this->middlename;
+        return $this->middleName;
     }
 
-    public function setMiddlename(?string $middlename): self
+    public function setMiddleName(?string $middleName): self
     {
-        $this->middlename = $middlename;
+        $this->middleName = $middleName;
 
         return $this;
     }
 
-    public function getModifydate(): ?\DateTimeInterface
+    public function getModifyDate(): ?\DateTimeInterface
     {
-        return $this->modifydate;
+        return $this->modifyDate;
     }
 
-    public function setModifydate(\DateTimeInterface $modifydate): self
+    public function setModifyDate(\DateTimeInterface $modifyDate): self
     {
-        $this->modifydate = $modifydate;
+        $this->modifyDate = $modifyDate;
 
         return $this;
     }
 
-    public function getModifyuser(): ?string
+    public function getModifyUser(): ?string
     {
-        return $this->modifyuser;
+        return $this->modifyUser;
     }
 
-    public function setModifyuser(string $modifyuser): self
+    public function setModifyUser(string $modifyUser): self
     {
-        $this->modifyuser = $modifyuser;
+        $this->modifyUser = $modifyUser;
 
         return $this;
     }
@@ -371,38 +692,38 @@ class Address
         return $this;
     }
 
-    public function getPobox(): ?string
+    public function getPoBox(): ?string
     {
-        return $this->pobox;
+        return $this->poBox;
     }
 
-    public function setPobox(?string $pobox): self
+    public function setPoBox(?string $poBox): self
     {
-        $this->pobox = $pobox;
+        $this->poBox = $poBox;
 
         return $this;
     }
 
-    public function getPocity(): ?string
+    public function getPoCity(): ?string
     {
-        return $this->pocity;
+        return $this->poCity;
     }
 
-    public function setPocity(?string $pocity): self
+    public function setPoCity(?string $poCity): self
     {
-        $this->pocity = $pocity;
+        $this->poCity = $poCity;
 
         return $this;
     }
 
-    public function getPozip(): ?string
+    public function getPoZip(): ?string
     {
-        return $this->pozip;
+        return $this->poZip;
     }
 
-    public function setPozip(?string $pozip): self
+    public function setPoZip(?string $poZip): self
     {
-        $this->pozip = $pozip;
+        $this->poZip = $poZip;
 
         return $this;
     }
@@ -431,26 +752,26 @@ class Address
         return $this;
     }
 
-    public function getVatnumber(): ?string
+    public function getVatNumber(): ?string
     {
-        return $this->vatnumber;
+        return $this->vatNumber;
     }
 
-    public function setVatnumber(?string $vatnumber): self
+    public function setVatNumber(?string $vatNumber): self
     {
-        $this->vatnumber = $vatnumber;
+        $this->vatNumber = $vatNumber;
 
         return $this;
     }
 
-    public function getZaznumber(): ?string
+    public function getZazNumber(): ?string
     {
-        return $this->zaznumber;
+        return $this->zazNumber;
     }
 
-    public function setZaznumber(?string $zaznumber): self
+    public function setZazNumber(?string $zazNumber): self
     {
-        $this->zaznumber = $zaznumber;
+        $this->zazNumber = $zazNumber;
 
         return $this;
     }
@@ -467,53 +788,52 @@ class Address
         return $this;
     }
 
-    public function getTitlefid(): ?Titles
+    public function getTitleFID(): ?Title
     {
-        return $this->titlefid;
+        return $this->titleFID;
     }
 
-    public function setTitlefid(?Titles $titlefid): self
+    public function setTitleFID(?Title $titleFID): self
     {
-        $this->titlefid = $titlefid;
+        $this->titleFID = $titleFID;
 
         return $this;
     }
 
-    public function getSalutationfid(): ?Salutations
+    public function getSalutationFID(): ?Salutation
     {
-        return $this->salutationfid;
+        return $this->salutationFID;
     }
 
-    public function setSalutationfid(?Salutations $salutationfid): self
+    public function setSalutationFID(?Salutation $salutationFID): self
     {
-        $this->salutationfid = $salutationfid;
+        $this->salutationFID = $salutationFID;
 
         return $this;
     }
 
-    public function getCountryfid(): ?Countrys
+    public function getCountryFID(): ?Country
     {
-        return $this->countryfid;
+        return $this->countryFID;
     }
 
-    public function setCountryfid(?Countrys $countryfid): self
+    public function setCountryFID(?Country $countryFID): self
     {
-        $this->countryfid = $countryfid;
+        $this->countryFID = $countryFID;
 
         return $this;
     }
 
-    public function getAddresstypefid(): ?Addresstypes
+    public function getAddressTypeFID(): ?AddressType
     {
-        return $this->addresstypefid;
+        return $this->addressTypeFID;
     }
 
-    public function setAddresstypefid(?Addresstypes $addresstypefid): self
+    public function setAddressTypeFID(?AddressType $addressTypeFID): self
     {
-        $this->addresstypefid = $addresstypefid;
+        $this->addressTypeFID = $addressTypeFID;
 
         return $this;
     }
-
-
+    
 }
