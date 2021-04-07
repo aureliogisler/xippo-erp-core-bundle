@@ -18,5 +18,16 @@ class XippoErpCoreExtension extends Extension
             new FileLocator(__DIR__.'/../../config')
         );
         $loader->load('services.yaml');
+        
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
+        
+        // $definition = $container->getDefinition('xippo_erp_core.main_class');
+        // $definition->setArgument(0, $config['myTestInteger']);
+    }
+
+    public function getAlias()
+    {
+        return 'xippo_erp_core';
     }
 }
