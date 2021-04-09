@@ -1,0 +1,19 @@
+# config/services.yaml
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Xippogmbh\XippoErpCoreBundle\Command\GreetCommand:
+        tags:
+            - { name: 'console.command', command: 'xippo:greet' }
+        autowire: true
+
+    Xippogmbh\XippoErpCoreBundle\Controller\HomeController:
+        public: true
+        alias: xippo-erp-core.home-controller
+    
+    xippo-erp-core.home-controller:
+        class: Xippogmbh\XippoErpCoreBundle\Controller\HomeController
+        public: true
+        autowire: true

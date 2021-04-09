@@ -1,0 +1,4 @@
+xippo-erp-core:
+    path: /
+    defaults: { _controller: xippo-erp-core.home-controller::index }
+    methods: [GET]
