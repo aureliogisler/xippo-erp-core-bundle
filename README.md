@@ -42,6 +42,6 @@ The xippo.erp Core Bundle is now installed. We have to change some configuration
 		type:     directory
 ```
 
-6. Enter a valid Database config in **.env** file (we do not use it at the moment.
+6. Enter a valid Database config in **.env** file (we do not use it at the moment).
 
 When you start now Symfony, you will get an emtpy home route.
