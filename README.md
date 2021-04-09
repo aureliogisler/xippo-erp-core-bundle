@@ -1,3 +1,5 @@
+### xippo.erp Core Bundle ###
+
 1. Install Symfony tradition WebApplication:
 ```
 composer create-project symfony/website-skeleton xippo_erp
